@@ -47,7 +47,7 @@ export default function EventTicketWebsite() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-red-500 via-red-600 to-red-700 text-white">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-white text-white">
       <div className="bg-white text-red-600 p-6 rounded-lg shadow-lg w-full max-w-lg">
         <h1 className="text-center text-3xl font-bold mb-6">Event Ticket Generator</h1>
         <form
@@ -123,62 +123,69 @@ export default function EventTicketWebsite() {
         ref={ticketRef}
         className="w-[450px] h-auto text-white rounded-lg flex flex-col items-center justify-between p-6 mt-10 shadow-lg"
         style={{
-          background: 'linear-gradient(135deg, #FF0000 0%, #D00000 100%)',
-        }}      >
+          backgroundImage: 'url(/bg.jpg)', // Point to the image in the public folder
+          backgroundSize: 'cover', // Ensure the image covers the entire div
+          backgroundPosition: 'center', // Center the image
+        }}
+      >
         {/* Header Section with Logo and Ticket Number */}
         <div className="w-full flex justify-between items-center">
           {/* Logo Section */}
           <div className="flex items-center space-x-4">
-            <img src="/logo.png" alt="Sharrafa Logo" className="h-16 w-auto" />
+            <img src="/logo.svg" alt="Sharrafa Logo" className="h-38 w-32" />
           </div>
           {/* Ticket Number */}
-          <div className="bg-red-800 px-6 py-2 rounded-full shadow-md">
-            <p className="text-2xl">03255</p>
+          <div className="bg-red-600 px-6 py-2 rounded-full shadow-md">
+            <p className="text-2xl font-bold">03255</p>
           </div>
         </div>
 
         {/* Ticket Information */}
         <div className="w-full space-y-4 text-center mt-6">
           {/* Person Name */}
-          <div className="bg-white text-red-700 rounded-full py-3 shadow-md">
+          <div className="bg-white text-red-600 font-bold rounded-full py-3 shadow-md">
             <p className="text-xl">{formData.personName || "اسم الشخص"}</p>
           </div>
 
           {/* Number of Attendees and Event Type (side by side) */}
           <div className="flex space-x-4 justify-between">
-            <div className="w-1/2 bg-white text-red-700 rounded-full py-3 shadow-md">
+            <div className="w-1/2 bg-white text-red-600 font-bold rounded-full py-3 shadow-md">
               <p className="text-xl">{formData.numberOfAttendees || "عدد الاشخاص"}</p>
             </div>
-            <div className="w-1/2 bg-white text-red-700 rounded-full py-3 shadow-md">
+            <div className="w-1/2 bg-white text-red-600 font-bold rounded-full py-3 shadow-md">
               <p className="text-xl">{formData.eventName || "اسم الفعالية"}</p>
             </div>
           </div>
 
-          {/* Time */}
-          <div className="bg-white text-red-700 rounded-full py-3 shadow-md">
-            <p className="text-xl">
-              {formData.dateTime
-                ? new Date(formData.dateTime).toLocaleString("en-US", {
-                  year: "numeric",
-                  month: "2-digit",
-                  day: "2-digit",
-                  hour: "2-digit",
-                  minute: "2-digit",
-                  hour12: true,
-                }).replace(",", " -")
-                : "الوقت"}
-            </p>
-          </div>
+          {/* Time and Address (side by side) */}
+          <div className="flex space-x-4 justify-between">
+            {/* Time */}
+            <div className="w-1/2 h-24 bg-white text-red-600 font-bold rounded-xl flex justify-center items-center shadow-md">
+              <p className="text-xl text-center">
+                {formData.dateTime
+                  ? new Date(formData.dateTime).toLocaleString("en-US", {
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    hour12: true,
+                  })
+                  : "الوقت"}
+              </p>
+            </div>
 
-          {/* Address */}
-          <div className="bg-white text-red-700 rounded-full py-3 shadow-md">
-            <p className="text-xl">{formData.address || "العنوان"}</p>
+            {/* Address */}
+            <div className="w-1/2 h-24 bg-white text-red-600 font-bold rounded-xl flex justify-center items-center shadow-md">
+              <p className="text-xl text-center">{formData.address || "العنوان"}</p>
+            </div>
           </div>
         </div>
 
         {/* Footer */}
-        <p className="text-sm mt-6">ENJOY IN RUSSIA..</p>
+        <p className="text-sm mt-6 text-white">ENJOY IN <span className=" font-bold">RUSSIA..</span></p>
       </div>
+
 
     </div>
   );
