@@ -134,32 +134,32 @@ export default function EventTicketWebsite() {
             </div>
             {/* Ticket Number */}
             <div className="bg-red-600 px-6 py-2 rounded-full shadow-md">
-              <p className="text-2xl font-bold mb-2">03255</p>
+              <p className="text-2xl mb-4">03255</p>
             </div>
           </div>
 
           {/* Ticket Information */}
           <div className="w-full space-y-4 text-center mt-6">
             {/* Person Name */}
-            <div className="bg-white text-red-600 font-bold rounded-full py-1 shadow-md">
-              <p className="text-xl flex justify-center items-center mb-2">{formData.personName || "اسم الشخص"}</p>
+            <div className="bg-white text-red-600 rounded-full py-1 shadow-md">
+              <p className="text-xl flex justify-center items-center mb-4">{formData.personName || "اسم الشخص"}</p>
             </div>
 
             {/* Number of Attendees and Event Type (side by side) */}
             <div className="flex space-x-4 justify-between">
-              <div className="w-1/2 bg-white text-red-600 font-bold rounded-full py-2 shadow-md">
-                <p className="text-xl flex justify-center items-center mb-2">{formData.numberOfAttendees || "عدد الاشخاص"}</p>
+              <div className="w-1/2 bg-white text-red-600 rounded-full py-2 shadow-md">
+                <p className="text-xl flex justify-center items-center mb-4">{formData.numberOfAttendees || "عدد الاشخاص"}</p>
               </div>
-              <div className="w-1/2 bg-white text-red-600 font-bold rounded-full py-3 shadow-md">
-                <p className="text-xl flex justify-center items-center mb-2">{formData.eventName || "اسم الفعالية"}</p>
+              <div className="w-1/2 bg-white text-red-600 rounded-full py-3 shadow-md">
+                <p className="text-xl flex justify-center items-center mb-4">{formData.eventName || "اسم الفعالية"}</p>
               </div>
             </div>
 
             {/* Time and Address (side by side) */}
             <div className="flex space-x-4 justify-between">
               {/* Time */}
-              <div className="w-1/2 h-24 bg-white text-red-600 font-bold rounded-xl flex justify-center items-center shadow-md">
-                <p className="text-xl flex justify-center items-center mb-2">
+              <div className="w-1/2 h-24 bg-white text-red-600 rounded-xl flex justify-center items-center shadow-md">
+                <p className="text-xl flex justify-center items-center mb-4">
                   {formData.dateTime
                     ? new Date(formData.dateTime).toLocaleString("en-US", {
                       year: "numeric",
@@ -174,8 +174,8 @@ export default function EventTicketWebsite() {
               </div>
 
               {/* Address */}
-              <div className="w-1/2 h-24 bg-white text-red-600 font-bold rounded-xl flex justify-center items-center shadow-md">
-                <p className="text-xl flex justify-center items-center mb-2">{formData.address || "العنوان"}</p>
+              <div className="w-1/2 h-24 bg-white text-red-600 rounded-xl flex justify-center items-center shadow-md">
+                <p className="text-xl flex justify-center items-center mb-4">{formData.address || "العنوان"}</p>
               </div>
             </div>
           </div>
