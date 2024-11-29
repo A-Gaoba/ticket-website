@@ -123,16 +123,16 @@ export default function EventTicketWebsite() {
         ref={ticketRef}
         className="w-[450px] h-auto text-white rounded-lg flex flex-col items-center justify-between p-6 mt-10 shadow-lg"
         style={{
-          backgroundImage: 'url(/bg.jpg)', // Point to the image in the public folder
-          backgroundSize: 'cover', // Ensure the image covers the entire div
-          backgroundPosition: 'center', // Center the image
+          backgroundImage: 'url(/bg.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
         }}
       >
         {/* Header Section with Logo and Ticket Number */}
         <div className="w-full flex justify-between items-center">
           {/* Logo Section */}
           <div className="flex items-center space-x-4">
-            <img src="/logo.svg" alt="Sharrafa Logo" className="h-38 w-32" />
+            <img src="/logo.png" alt="Sharrafa Logo" className="h-38 w-32" />
           </div>
           {/* Ticket Number */}
           <div className="bg-red-600 px-6 py-2 rounded-full shadow-md">
@@ -144,16 +144,16 @@ export default function EventTicketWebsite() {
         <div className="w-full space-y-4 text-center mt-6">
           {/* Person Name */}
           <div className="bg-white text-red-600 font-bold rounded-full py-3 shadow-md">
-            <p className="text-xl">{formData.personName || "اسم الشخص"}</p>
+            <p className="text-xl text-center mb-4">{formData.personName || "اسم الشخص"}</p>
           </div>
 
           {/* Number of Attendees and Event Type (side by side) */}
           <div className="flex space-x-4 justify-between">
             <div className="w-1/2 bg-white text-red-600 font-bold rounded-full py-3 shadow-md">
-              <p className="text-xl">{formData.numberOfAttendees || "عدد الاشخاص"}</p>
+              <p className="text-xl text-center mb-4">{formData.numberOfAttendees || "عدد الاشخاص"}</p>
             </div>
             <div className="w-1/2 bg-white text-red-600 font-bold rounded-full py-3 shadow-md">
-              <p className="text-xl">{formData.eventName || "اسم الفعالية"}</p>
+              <p className="text-xl text-center mb-4">{formData.eventName || "اسم الفعالية"}</p>
             </div>
           </div>
 
@@ -161,7 +161,7 @@ export default function EventTicketWebsite() {
           <div className="flex space-x-4 justify-between">
             {/* Time */}
             <div className="w-1/2 h-24 bg-white text-red-600 font-bold rounded-xl flex justify-center items-center shadow-md">
-              <p className="text-xl text-center">
+              <p className="text-xl text-center mb-4">
                 {formData.dateTime
                   ? new Date(formData.dateTime).toLocaleString("en-US", {
                     year: "numeric",
@@ -177,7 +177,7 @@ export default function EventTicketWebsite() {
 
             {/* Address */}
             <div className="w-1/2 h-24 bg-white text-red-600 font-bold rounded-xl flex justify-center items-center shadow-md">
-              <p className="text-xl text-center">{formData.address || "العنوان"}</p>
+              <p className="text-xl text-center mb-4">{formData.address || "العنوان"}</p>
             </div>
           </div>
         </div>
