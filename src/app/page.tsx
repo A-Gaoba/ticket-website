@@ -119,7 +119,7 @@ export default function EventTicketWebsite() {
         {/* Ticket Design */}
         <div
           ref={ticketRef}
-          className="w-full h-auto text-white rounded-lg flex flex-col items-center justify-between px-6 mt-10 shadow-lg"
+          className="w-full h-auto text-white rounded-lg flex flex-col items-center justify-between py-4 px-6 mt-10 shadow-lg"
           style={{
             backgroundImage: 'url(/bg.jpg)',
             backgroundSize: 'cover',
