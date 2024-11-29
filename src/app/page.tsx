@@ -47,7 +47,7 @@ export default function EventTicketWebsite() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-white text-white">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-white text-white p-4">
       <div className="bg-white text-red-600 p-6 rounded-lg shadow-lg w-full max-w-lg">
         <h1 className="text-center text-3xl font-bold mb-6">Event Ticket Generator</h1>
         <form
@@ -144,16 +144,16 @@ export default function EventTicketWebsite() {
         <div className="w-full space-y-4 text-center mt-6">
           {/* Person Name */}
           <div className="bg-white text-red-600 font-bold rounded-full py-3 shadow-md">
-            <p className="text-xl text-center mb-4">{formData.personName || "اسم الشخص"}</p>
+            <p className="text-xl text-center ">{formData.personName || "اسم الشخص"}</p>
           </div>
 
           {/* Number of Attendees and Event Type (side by side) */}
           <div className="flex space-x-4 justify-between">
             <div className="w-1/2 bg-white text-red-600 font-bold rounded-full py-3 shadow-md">
-              <p className="text-xl text-center mb-4">{formData.numberOfAttendees || "عدد الاشخاص"}</p>
+              <p className="text-xl text-center ">{formData.numberOfAttendees || "عدد الاشخاص"}</p>
             </div>
             <div className="w-1/2 bg-white text-red-600 font-bold rounded-full py-3 shadow-md">
-              <p className="text-xl text-center mb-4">{formData.eventName || "اسم الفعالية"}</p>
+              <p className="text-xl text-center ">{formData.eventName || "اسم الفعالية"}</p>
             </div>
           </div>
 
@@ -161,7 +161,7 @@ export default function EventTicketWebsite() {
           <div className="flex space-x-4 justify-between">
             {/* Time */}
             <div className="w-1/2 h-24 bg-white text-red-600 font-bold rounded-xl flex justify-center items-center shadow-md">
-              <p className="text-xl text-center mb-4">
+              <p className="text-xl text-center ">
                 {formData.dateTime
                   ? new Date(formData.dateTime).toLocaleString("en-US", {
                     year: "numeric",
@@ -177,7 +177,7 @@ export default function EventTicketWebsite() {
 
             {/* Address */}
             <div className="w-1/2 h-24 bg-white text-red-600 font-bold rounded-xl flex justify-center items-center shadow-md">
-              <p className="text-xl text-center mb-4">{formData.address || "العنوان"}</p>
+              <p className="text-xl text-center ">{formData.address || "العنوان"}</p>
             </div>
           </div>
         </div>
