@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState } from "react";
-import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 
 export default function EventTicketWebsite() {
@@ -19,7 +18,7 @@ export default function EventTicketWebsite() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleGeneratePDF = async () => {
+  const handleSaveAsImage = async () => {
     const ticketElement = ticketRef.current;
 
     if (!ticketElement) {
@@ -35,14 +34,12 @@ export default function EventTicketWebsite() {
       });
 
       const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF("p", "mm", "a4");
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-
-      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
-      pdf.save("event-ticket.pdf");
+      const link = document.createElement("a");
+      link.href = imgData;
+      link.download = "event-ticket.png";
+      link.click();
     } catch (error) {
-      console.error("Error generating PDF:", error);
+      console.error("Error saving image:", error);
     }
   };
 
@@ -53,7 +50,7 @@ export default function EventTicketWebsite() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            handleGeneratePDF();
+            handleSaveAsImage();
           }}
           className="space-y-4"
         >
@@ -113,7 +110,7 @@ export default function EventTicketWebsite() {
             type="submit"
             className="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded-lg"
           >
-            Generate PDF Ticket
+            Save Ticket as Image
           </button>
         </form>
       </div>
@@ -132,7 +129,7 @@ export default function EventTicketWebsite() {
         <div className="w-full flex justify-between items-center">
           {/* Logo Section */}
           <div className="flex items-center space-x-4">
-            <img src="/logo.png" alt="Sharrafa Logo" className="h-38 w-32" />
+            <img src="/logo.png" alt="Sharrafa Logo" className="h-36 w-36" />
           </div>
           {/* Ticket Number */}
           <div className="bg-red-600 px-6 py-2 rounded-full shadow-md">
@@ -144,16 +141,16 @@ export default function EventTicketWebsite() {
         <div className="w-full space-y-4 text-center mt-6">
           {/* Person Name */}
           <div className="bg-white text-red-600 font-bold rounded-full py-3 shadow-md">
-            <p className="text-xl text-center ">{formData.personName || "اسم الشخص"}</p>
+            <p className="text-xl flex justify-center items-center ">{formData.personName || "اسم الشخص"}</p>
           </div>
 
           {/* Number of Attendees and Event Type (side by side) */}
           <div className="flex space-x-4 justify-between">
             <div className="w-1/2 bg-white text-red-600 font-bold rounded-full py-3 shadow-md">
-              <p className="text-xl text-center ">{formData.numberOfAttendees || "عدد الاشخاص"}</p>
+              <p className="text-xl flex justify-center items-center ">{formData.numberOfAttendees || "عدد الاشخاص"}</p>
             </div>
             <div className="w-1/2 bg-white text-red-600 font-bold rounded-full py-3 shadow-md">
-              <p className="text-xl text-center ">{formData.eventName || "اسم الفعالية"}</p>
+              <p className="text-xl flex justify-center items-center ">{formData.eventName || "اسم الفعالية"}</p>
             </div>
           </div>
 
@@ -161,7 +158,7 @@ export default function EventTicketWebsite() {
           <div className="flex space-x-4 justify-between">
             {/* Time */}
             <div className="w-1/2 h-24 bg-white text-red-600 font-bold rounded-xl flex justify-center items-center shadow-md">
-              <p className="text-xl text-center ">
+              <p className="text-xl flex justify-center items-center ">
                 {formData.dateTime
                   ? new Date(formData.dateTime).toLocaleString("en-US", {
                     year: "numeric",
@@ -177,7 +174,7 @@ export default function EventTicketWebsite() {
 
             {/* Address */}
             <div className="w-1/2 h-24 bg-white text-red-600 font-bold rounded-xl flex justify-center items-center shadow-md">
-              <p className="text-xl text-center ">{formData.address || "العنوان"}</p>
+              <p className="text-xl flex justify-center items-center ">{formData.address || "العنوان"}</p>
             </div>
           </div>
         </div>
@@ -185,8 +182,6 @@ export default function EventTicketWebsite() {
         {/* Footer */}
         <p className="text-sm mt-6 text-white">ENJOY IN <span className=" font-bold">RUSSIA..</span></p>
       </div>
-
-
     </div>
   );
 }
