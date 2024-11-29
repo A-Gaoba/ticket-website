@@ -36,7 +36,7 @@ export default function EventTicketWebsite() {
       const imgData = canvas.toDataURL("image/png");
       const link = document.createElement("a");
       link.href = imgData;
-      link.download = "event-ticket.png";
+      link.download = `${formData.personName}.png`;
       link.click();
     } catch (error) {
       console.error("Error saving image:", error);
@@ -119,7 +119,7 @@ export default function EventTicketWebsite() {
         {/* Ticket Design */}
         <div
           ref={ticketRef}
-          className="w-full h-auto text-white rounded-lg flex flex-col items-center justify-between p-6 mt-10 shadow-lg"
+          className="w-full h-auto text-white rounded-lg flex flex-col items-center justify-between px-6 mt-10 shadow-lg"
           style={{
             backgroundImage: 'url(/bg.jpg)',
             backgroundSize: 'cover',
@@ -141,13 +141,13 @@ export default function EventTicketWebsite() {
           {/* Ticket Information */}
           <div className="w-full space-y-4 text-center mt-6">
             {/* Person Name */}
-            <div className="bg-white text-red-600 font-bold rounded-full py-3 shadow-md">
+            <div className="bg-white text-red-600 font-bold rounded-full py-1 shadow-md">
               <p className="text-xl flex justify-center items-center ">{formData.personName || "اسم الشخص"}</p>
             </div>
 
             {/* Number of Attendees and Event Type (side by side) */}
             <div className="flex space-x-4 justify-between">
-              <div className="w-1/2 bg-white text-red-600 font-bold rounded-full py-3 shadow-md">
+              <div className="w-1/2 bg-white text-red-600 font-bold rounded-full py-2 shadow-md">
                 <p className="text-xl flex justify-center items-center ">{formData.numberOfAttendees || "عدد الاشخاص"}</p>
               </div>
               <div className="w-1/2 bg-white text-red-600 font-bold rounded-full py-3 shadow-md">
