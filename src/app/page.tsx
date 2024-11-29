@@ -142,16 +142,16 @@ export default function EventTicketWebsite() {
           <div className="w-full space-y-4 text-center mt-6">
             {/* Person Name */}
             <div className="bg-white text-red-600 rounded-full py-1 shadow-md">
-              <p className="text-xl font-bold flex justify-center items-center mb-4">{formData.personName || "اسم الشخص"}</p>
+              <p className="text-base font-bold flex justify-center items-center mb-4">{formData.personName || "اسم الشخص"}</p>
             </div>
 
             {/* Number of Attendees and Event Type (side by side) */}
             <div className="flex space-x-4 justify-between">
               <div className="w-1/2 bg-white text-red-600 rounded-full py-1 shadow-md">
-                <p className="text-xl font-bold flex justify-center items-center mb-4">{formData.numberOfAttendees || "عدد الاشخاص"}</p>
+                <p className=" text-base font-bold flex justify-center items-center mb-4">{formData.numberOfAttendees || "عدد الاشخاص"}</p>
               </div>
               <div className="w-1/2 bg-white text-red-600 rounded-full py-1 shadow-md">
-                <p className="text-xl font-bold flex justify-center items-center mb-4">{formData.eventName || "اسم الفعالية"}</p>
+                <p className="text-base font-bold flex justify-center items-center mb-4">{formData.eventName || "اسم الفعالية"}</p>
               </div>
             </div>
 
@@ -159,7 +159,7 @@ export default function EventTicketWebsite() {
             <div className="flex space-x-4 justify-between">
               {/* Time */}
               <div className="w-1/2 h-24 bg-white text-red-600 rounded-xl flex justify-center items-center shadow-md">
-                <p className="text-xl font-bold flex justify-center items-center mb-4">
+                <p className="text-base font-bold flex justify-center items-center mb-4">
                   {formData.dateTime
                     ? new Date(formData.dateTime).toLocaleString("en-US", {
                       year: "numeric",
@@ -175,7 +175,7 @@ export default function EventTicketWebsite() {
 
               {/* Address */}
               <div className="w-1/2 h-24 bg-white text-red-600 rounded-xl flex justify-center items-center shadow-md">
-                <p className="text-xl font-bold flex justify-center items-center mb-4">{formData.address || "العنوان"}</p>
+                <p className="text-base font-bold flex justify-center items-center mb-4">{formData.address || "العنوان"}</p>
               </div>
             </div>
           </div>
