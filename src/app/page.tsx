@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import html2canvas from "html2canvas";
+import Image from 'next/image';
 
 export default function EventTicketWebsite() {
   const ticketRef = useRef<HTMLDivElement>(null);
@@ -130,7 +131,7 @@ export default function EventTicketWebsite() {
           <div className="w-full flex justify-between items-center">
             {/* Logo Section */}
             <div className="flex items-center space-x-4">
-              <img src="/logo.png" alt="Sharrafa Logo" className="h-36 w-36" />
+              <Image src="/logo.png" alt="Sharrafa Logo" className="h-36 w-36" />
             </div>
             {/* Ticket Number */}
             <div className="bg-red-600 px-6 py-2 rounded-full shadow-md">
